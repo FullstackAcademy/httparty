@@ -1,3 +1,9 @@
 {
-  "profile": "fullstack"
+  "name": "HTTParty",
+  "profile": "fullstack",
+  "stages": {
+    "production": {
+      "domain": "httparty.cc"
+    }
+  }
 }
