@@ -1,6 +1,6 @@
 const http = require("http");
 const qs = require("qs");
-const PORT = 3000;
+const { PORT = 3000 } = process.env
 const server = http.createServer().listen(PORT);
 
 const match = (route, req, res) => {
