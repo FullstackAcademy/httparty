@@ -1,4 +1,6 @@
 const http = require("http");
+const path = require('path');
+const fs = require('fs');
 const qs = require("qs");
 const { PORT = 3000 } = process.env
 const server = http.createServer().listen(PORT);
@@ -74,6 +76,11 @@ const match = (route, req, res) => {
           html("Unauthorized", "<h1>Authorization Required</h1>", "<p>Psst... Try user:123</p>")
         );
       }
+    
+    case "GET /gif":
+      res.writeHead(200, {'Content-Type': "image/gif"} );
+      const fileStream = fs.createReadStream(path.join(__dirname, "square.gif"));
+      return fileStream.pipe(res);
 
     default:
       res.writeHead(404, { "Content-Type": "text/html" });
